@@ -6,43 +6,52 @@
 	margin: 0;
     text-align: center;
     font-family: 'Roboto', sans-serif;
+    color: #5e60ce9d;
+}
+
+body {
+    background: linear-gradient(25deg,#5e60ce, rgba(67, 30, 126, 0.644));
+    padding-bottom: 3.5em;
 }
 
 .nav-bar {
-    background-color:  black;
-        display: flex;
-        text-align: center;
-        justify-content: center;
-        justify-content: space-evenly;
-        padding: 1.5em;
-        margin-bottom: 2.5em;
-    }
+    list-style-type: none;
+    background-color:   white;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 1em;
+    margin-bottom: 2.5em;
+}
     
-    .nav-bar ul li { 
-        list-style-type: none;
-        display: inline-block; 
-    }
+.nav-bar ul li { 
+    display: inline-block; 
+}
     
-    .nav-bar li a { 
-        text-decoration: none;
-        padding: 50px;
-        color: aliceblue;
-    }
+.nav-bar li a { 
+    padding: 50px;
+    color: #5e60ce;
+}
+
+.signin-signup {
+    margin-top: 0.5em;
+}
 
 .container {
     display: block; 
-    background: #5390d9;
+    background: white;
     border-radius: 10%;
     height: 75vh;
     width: 75vh;
     margin: auto;
     padding: 1em;
-    color: #5e60ce;
+    box-shadow: 0px 0px 10px 10px rgba(67, 30, 126, 0.644);
 }
 
 h1 {
-    margin: 1.5em;
-    color: white;
+    margin: 0.25em;
+    color: black;
+    font-weight: bolder;
 }
 
 label {
@@ -51,31 +60,46 @@ label {
 }
 
 div {
-    margin: 3em;
+    margin: 2.5em;
 }
 
-button {
-    padding: 0.5em;
-    border-color: #5e60ce;
-    border-style: hidden;
-    background-color: #5390d9;
-}
 
-.user-name input, .email input, .psw input, .psw-repeat input{
+.user-name input, .email input, .psw input {
     padding-right: 1em;
     padding-left: 1em;
     width: 50vh;
     height: 5vh;
-    border-color: #5e60ce;
-    border-style: hidden;
+    border-color: rgba(67, 30, 126, 0.589);
+    border-style: solid;
     text-align: left;
+    background-color: rgba(255, 255, 255, 0.144);
+    color: black;
+    border-radius: 25px;
+    box-shadow: 0px 2px 2px 2px rgba(67, 30, 126, 0.336);
 }
+
 
 a {
     text-decoration: none;
-    color: #5e60ce;
+    color: black;
     font-weight: bolder;
 }
+
+button {
+    color: white;
+    padding: 1em;
+    border-style: hidden;
+    background: linear-gradient(45deg,#5e60ce, rgba(67, 30, 126, 0.644));
+    border-radius: 25px;
+    box-shadow: 0px 2px 2px 2px rgba(67, 30, 126, 0.336);
+    font-size: 1em;
+    width: 10em;
+}
+
+::placeholder {
+    color: rgba(0, 0, 0, 0.315);
+}
+
 
 
 
