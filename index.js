@@ -33,16 +33,28 @@ app.get('/signup', async(req, res) => {
 })
 
 app.post('/signup', async(req, res) => {
-    let user = new User({
-        userName: req.body.userName,
-        password: req.body.password,
-        email: req.body.email
+	if (!req.body.userName || !req.body.email || !req.body.password) {
+		res.render('signup', {err: "Please provide all credentials"})
+		return
+	}
+	const user = new User({
+		userName: req.body.userName,
+		email: req.body.email,
+		password: req.body.password
     })
     
-    await user.save()
- 
-    res.redirect(`/profile/?userName=${req.body.userName}`)
-})
+	let isDuplicate = false;
+	await user.save().catch((reason) => {
+		res.render('signup', {err: "A user with this user name or password already exists"})
+		isDuplicate = true
+	})
+	if (isDuplicate) {
+		return
+	}
+	res.redirect(`/profile/?userName=${req.body.userName}`);
+});
+
+
 
 app.get('/login', async(req, res) => {
     res.render('login')
@@ -53,7 +65,14 @@ app.post('/login', async(req, res) => {
 })
 
 app.get('/profile', async(req, res) => {
-	let user = await User.findOne({userName: req.query.userName})
+    let user = await User.findOne({userName: req.query.userName})
+
+    if (user == null) {
+        res.render('profile', {err: "User doesn't exist"});
+        return
+
+    }
+
 	res.render('profile', {user: user.toObject()});
 });
 
